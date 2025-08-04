@@ -1,0 +1,17 @@
+import { Request, Response } from 'express';
+export declare function download(message: any, client: any, logger: any): Promise<string | undefined>;
+export declare function startAllSessions(req: Request, res: Response): Promise<any>;
+export declare function showAllSessions(req: Request, res: Response): Promise<any>;
+export declare function startSession(req: Request, res: Response): Promise<any>;
+export declare function closeSession(req: Request, res: Response): Promise<any>;
+export declare function logOutSession(req: Request, res: Response): Promise<any>;
+export declare function checkConnectionSession(req: Request, res: Response): Promise<any>;
+export declare function downloadMediaByMessage(req: Request, res: Response): Promise<void>;
+export declare function getMediaByMessage(req: Request, res: Response): Promise<void>;
+export declare function getSessionState(req: Request, res: Response): Promise<void>;
+export declare function getQrCode(req: Request, res: Response): Promise<void>;
+export declare function killServiceWorker(req: Request, res: Response): Promise<void>;
+export declare function restartService(req: Request, res: Response): Promise<void>;
+export declare function subscribePresence(req: Request, res: Response): Promise<void>;
+export declare function setOnlinePresence(req: Request, res: Response): Promise<void>;
+export declare function editBusinessProfile(req: Request, res: Response): Promise<void>;

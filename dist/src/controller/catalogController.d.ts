@@ -1,0 +1,16 @@
+import { Request, Response } from 'express';
+export declare function getProducts(req: Request, res: Response): Promise<void>;
+export declare function getProductById(req: Request, res: Response): Promise<void>;
+export declare function editProduct(req: Request, res: Response): Promise<void>;
+export declare function delProducts(req: Request, res: Response): Promise<void>;
+export declare function changeProductImage(req: Request, res: Response): Promise<void>;
+export declare function addProduct(req: Request, res: Response): Promise<void>;
+export declare function addProductImage(req: Request, res: Response): Promise<void>;
+export declare function removeProductImage(req: Request, res: Response): Promise<void>;
+export declare function getCollections(req: Request, res: Response): Promise<void>;
+export declare function createCollection(req: Request, res: Response): Promise<void>;
+export declare function editCollection(req: Request, res: Response): Promise<void>;
+export declare function deleteCollection(req: Request, res: Response): Promise<void>;
+export declare function setProductVisibility(req: Request, res: Response): Promise<void>;
+export declare function updateCartEnabled(req: Request, res: Response): Promise<void>;
+export declare function sendLinkCatalog(req: Request, res: Response): Promise<void>;
