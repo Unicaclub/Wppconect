@@ -1,18 +1,20 @@
-# WPPConnect Team
+# Unicaclub
 
-## _WPPConnect Server_
+## _WPPConnect Server - Fork_
 
 ![WPPConnect-SERVER](https://i.imgur.com/y1ts6RR.png)
 
 [![npm version](https://img.shields.io/npm/v/@wppconnect/server.svg?color=green)](https://www.npmjs.com/package/@wppconnect/server)
 [![Downloads](https://img.shields.io/npm/dm/@wppconnect/server.svg)](https://www.npmjs.com/package/@wppconnect/server)
-[![Average time to resolve an issue](https://isitmaintained.com/badge/resolution/wppconnect-team/wppconnect-server.svg)](https://isitmaintained.com/project/wppconnect-team/wppconnect-server 'Average time to resolve an issue')
-[![Percentage of issues still open](https://isitmaintained.com/badge/open/wppconnect-team/wppconnect-server.svg)](https://isitmaintained.com/badge/open/wppconnect-team/wppconnect-server.svg 'Percentage of issues still open')
-[![Build Status](https://img.shields.io/github/actions/workflow/status/wppconnect-team/wppconnect-server/build.yml)](https://github.com/wppconnect-team/wppconnect-server/actions)
-[![Build](https://github.com/wppconnect-team/wppconnect-server/actions/workflows/build.yml/badge.svg)](https://github.com/wppconnect-team/wppconnect-server/actions/workflows/build.yml)
+[![Average time to resolve an issue](https://isitmaintained.com/badge/resolution/Unicaclub/Wppconect.svg)](https://isitmaintained.com/project/Unicaclub/Wppconect 'Average time to resolve an issue')
+[![Percentage of issues still open](https://isitmaintained.com/badge/open/Unicaclub/Wppconect.svg)](https://isitmaintained.com/badge/open/Unicaclub/Wppconect.svg 'Percentage of issues still open')
+[![Build Status](https://img.shields.io/github/actions/workflow/status/Unicaclub/Wppconect/build.yml)](https://github.com/Unicaclub/Wppconect/actions)
+[![Build](https://github.com/Unicaclub/Wppconect/actions/workflows/build.yml/badge.svg)](https://github.com/Unicaclub/Wppconect/actions/workflows/build.yml)
 [![release-it](https://img.shields.io/badge/%F0%9F%93%A6%F0%9F%9A%80-release--it-e10079.svg)](https://github.com/release-it/release-it)
 
-Welcome to the **WPPConnect Server** repository, developed by the WPPConnect Team. Our mission is to provide a robust and ready-to-use API for seamless communication with WhatsApp. The server is designed to streamline the process of sending and receiving messages, managing contacts, creating groups, and much more, all while leveraging the power of JavaScript ES6, NodeJS, and a RESTful architecture.
+This is a fork of the **WPPConnect Server** repository, originally developed by the WPPConnect Team. Our mission is to provide a robust and ready-to-use API for seamless communication with WhatsApp. The server is designed to streamline the process of sending and receiving messages, managing contacts, creating groups, and much more, all while leveraging the power of JavaScript ES6, NodeJS, and a RESTful architecture.
+
+**Original Repository**: [wppconnect-team/wppconnect-server](https://github.com/wppconnect-team/wppconnect-server)
 
 - Javascript ES6
 - NodeJS

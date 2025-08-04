@@ -1,3 +1,19 @@
+# Changelog - Unicaclub Fork
+
+## 2.8.6-unicaclub.1 (2025-08-04)
+
+### Fork Changes
+
+- **Fork**: Created fork from wppconnect-team/wppconnect-server
+- **Repository**: Updated all references to point to Unicaclub/Wppconect
+- **Branding**: Updated server branding to Unicaclub-WPPConnect-Server
+- **Package**: Updated package name to @unicaclub/wppconnect-server
+- **Code**: Fixed app.js syntax issues and deprecated Buffer constructor
+
+---
+
+# Original Changelog
+
 ## 2.8.6 (2025-03-29)
 
 ### Bug Fixes

@@ -78,7 +78,7 @@ export default class CreateSessionUtil {
               client.config.phone == undefined // bug when using phone code this shouldn't be passed (https://github.com/wppconnect-team/wppconnect-server/issues/1687#issuecomment-2099357874)
                 ? client.config?.poweredBy ||
                   req.serverOptions.poweredBy ||
-                  'WPPConnect-Server'
+                  'Unicaclub-WPPConnect-Server'
                 : undefined,
             catchLinkCode: (code: string) => {
               this.exportPhoneCode(req, client.config.phone, code, client, res);

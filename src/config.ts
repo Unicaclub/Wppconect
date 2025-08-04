@@ -5,7 +5,7 @@ export default {
   host: 'http://localhost',
   port: '21465',
   deviceName: 'WppConnect',
-  poweredBy: 'WPPConnect-Server',
+  poweredBy: 'Unicaclub-WPPConnect-Server',
   startAllSession: true,
   tokenStoreType: 'file',
   maxListeners: 15,

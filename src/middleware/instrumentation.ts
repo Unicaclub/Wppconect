@@ -28,7 +28,7 @@ export async function metrics(req: Request, res: Response) {
    */
   const register = new Prometheus.Registry();
   register.setDefaultLabels({
-    app: 'wppconnect-server',
+    app: 'unicaclub-wppconnect-server',
   });
   Prometheus.collectDefaultMetrics({ register });
 

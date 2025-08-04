@@ -121,7 +121,7 @@ export function initServer(serverOptions: Partial<ServerOptions>): {
     logger.info(
       `\x1b[31m Visit ${serverOptions.host}:${PORT}/api-docs for Swagger docs`
     );
-    logger.info(`WPPConnect-Server version: ${version}`);
+    logger.info(`Unicaclub-WPPConnect-Server version: ${version}`);
 
     if (serverOptions.startAllSession) startAllSessions(serverOptions, logger);
   });

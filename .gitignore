@@ -9,8 +9,8 @@
 /tokens
 /uploads
 /WhatsAppImages
-/wppconnect-server.njsproj
-/wppconnect-server.njsproj.user
+/unicaclub-wppconnect-server.njsproj
+/unicaclub-wppconnect-server.njsproj.user
 *.sln
 /package-lock.json
 *.png
