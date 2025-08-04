@@ -1,63 +1,79 @@
-FROM node:22.17.1-alpine AS base
-WORKDIR /usr/src/wpp-server
-ENV NODE_ENV=production PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+# Use a more stable Node.js base image
+FROM node:18-bullseye-slim
 
-# Install system dependencies
-RUN apk update && \
-    apk add --no-cache \
-    gcc \
-    g++ \
-    make \
-    python3 \
-    py3-pip \
-    libc6-compat \
-    && rm -rf /var/cache/apk/*
+# Set working directory
+WORKDIR /app
 
-# Copy package files
-COPY package.json ./
-
-# Install dependencies
-RUN npm install --only=production --no-audit --no-optional && \
-    npm cache clean --force
-
-FROM base AS build
-WORKDIR /usr/src/wpp-server
+# Set environment variables
+ENV NODE_ENV=production
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
 
-# Copy package files for build
+# Install system dependencies in one layer
+RUN apt-get update && \
+    apt-get install -y \
+    wget \
+    gnupg \
+    ca-certificates \
+    procps \
+    libxss1 \
+    gconf-service \
+    libasound2 \
+    libatk1.0-0 \
+    libc6 \
+    libcairo2 \
+    libcups2 \
+    libdbus-1-3 \
+    libexpat1 \
+    libfontconfig1 \
+    libgcc1 \
+    libgconf-2-4 \
+    libgdk-pixbuf2.0-0 \
+    libglib2.0-0 \
+    libgtk-3-0 \
+    libnspr4 \
+    libpango-1.0-0 \
+    libpangocairo-1.0-0 \
+    libstdc++6 \
+    libx11-6 \
+    libx11-xcb1 \
+    libxcb1 \
+    libxcomposite1 \
+    libxcursor1 \
+    libxdamage1 \
+    libxext6 \
+    libxfixes3 \
+    libxi6 \
+    libxrandr2 \
+    libxrender1 \
+    libxss1 \
+    libxtst6 \
+    chromium \
+    fonts-liberation \
+    libappindicator1 \
+    libnss3 \
+    lsb-release \
+    xdg-utils \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy package.json and install ALL dependencies (including dev dependencies for build)
 COPY package.json ./
+RUN npm install --no-package-lock --no-audit
 
-# Install all dependencies (including dev dependencies)
-RUN npm install --no-audit
-
-# Copy source code
+# Copy application files
 COPY . .
 
 # Build the project
 RUN npm run build
 
-# Clean cache
-RUN npm cache clean --force
+# Remove dev dependencies after build
+RUN npm prune --production
 
-# Final stage
-FROM base
-WORKDIR /usr/src/wpp-server/
-
-# Install Chromium for Puppeteer
-RUN apk add --no-cache chromium
-
-# Copy built application from build stage
-COPY --from=build /usr/src/wpp-server/dist/ ./dist/
-COPY --from=build /usr/src/wpp-server/package.json ./
-
-# Copy other necessary files
-COPY . .
-
-# Clean npm cache
-RUN npm cache clean --force
+# Create necessary directories
+RUN mkdir -p tokens uploads userDataDir WhatsAppImages log
 
 # Expose port
 EXPOSE 21465
 
-# Start the application
-ENTRYPOINT ["node", "dist/server.js"]
+# Start command
+CMD ["npm", "start"]
