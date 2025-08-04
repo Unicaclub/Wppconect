@@ -11,7 +11,7 @@ export default {
   maxListeners: 15,
   customUserDataDir: './userDataDir/',
   webhook: {
-    url: 'https://marketing-ai-system-production.up.railway.app/api/webhook',
+    url: 'http://localhost:3000/webhook', // Endpoint local para desenvolvimento
     autoDownload: true,
     uploadS3: false,
     readMessage: true,
