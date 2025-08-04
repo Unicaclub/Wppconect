@@ -1,7 +1,7 @@
 import { ServerOptions } from './types/ServerOptions';
 
 export default {
-  secretKey: 'THISISMYSECURETOKEN',
+  secretKey: 'Mestre888',
   host: 'http://localhost',
   port: '21465',
   deviceName: 'WppConnect',
@@ -11,7 +11,7 @@ export default {
   maxListeners: 15,
   customUserDataDir: './userDataDir/',
   webhook: {
-    url: null,
+    url: 'https://marketing-ai-system-production.up.railway.app/api/webhook',
     autoDownload: true,
     uploadS3: false,
     readMessage: true,

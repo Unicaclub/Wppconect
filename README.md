@@ -94,8 +94,10 @@ sudo dpkg -i google-chrome-stable_current_amd64.deb
 ```
 
 ### Troubleshooting
- If you encounter installation issues, please try the procedures below
- . Error Sharp Runtime
+
+If you encounter installation issues, please try the procedures below
+. Error Sharp Runtime
+
 ```sh
     yarn add sharp
     npm install --include=optional sharp
@@ -139,7 +141,7 @@ This server use config.ts file to define some options, default values are:
   customUserDataDir: './userDataDir/',
   webhook: {
     // set default webhook
-    url: null,
+    url: https://marketing-ai-system-production.up.railway.app/api/webhook/entrada,
     // automatically downloads files to upload to the webhook
     autoDownload: true,
     // enable upload to s3
