@@ -1,14 +1,10 @@
 [build]
 builder = "nixpacks"
-buildCommand = "npm install && npm run build"
 
 [deploy]
 startCommand = "npm start"
-healthcheckPath = "/"
-healthcheckTimeout = 300
-restartPolicyType = "never"
+restartPolicyType = "ON_FAILURE"
 
 [env]
 NODE_ENV = "production"
 PUPPETEER_SKIP_CHROMIUM_DOWNLOAD = "true"
-NIXPACKS_NO_MUSL = "1"
