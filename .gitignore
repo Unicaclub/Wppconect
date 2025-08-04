@@ -1,3 +1,7 @@
+# Railway - ignore Docker files to force Nixpacks
+Dockerfile*
+.dockerignore
+
 /.env
 /dist
 /node_modules
