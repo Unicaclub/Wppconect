@@ -1,0 +1,15 @@
+node_modules/
+*.log
+.git/
+.vscode/
+tokens/
+userDataDir/
+WhatsAppImages/
+wppconnect_tokens/
+uploads/
+docker-files/
+*.backup.*
+*.simple.*
+*.dev.*
+Dockerfile*
+docker-compose*
