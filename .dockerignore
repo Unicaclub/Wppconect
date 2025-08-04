@@ -1,3 +1,6 @@
+# Railway deployment - ignore Docker files
+Dockerfile*
+.dockerignore
 .git
 .github
 .hust

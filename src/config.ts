@@ -1,10 +1,10 @@
 import { ServerOptions } from './types/ServerOptions';
 
 export default {
-  secretKey: 'Mestre888',
-  host: 'http://localhost',
-  port: '21465',
-  deviceName: 'WppConnect',
+  secretKey: process.env.SECRET_KEY || 'Mestre888',
+  host: process.env.HOST || 'http://localhost',
+  port: process.env.PORT || '21465',
+  deviceName: process.env.DEVICE_NAME || 'WppConnect',
   poweredBy: 'Unicaclub-WPPConnect-Server',
   startAllSession: true,
   tokenStoreType: 'file',

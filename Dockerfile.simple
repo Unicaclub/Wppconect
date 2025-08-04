@@ -1,0 +1,25 @@
+# Dockerfile super simples
+FROM node:18
+
+WORKDIR /app
+
+# Instalar Chromium via package manager
+RUN apt-get update && apt-get install -y chromium && rm -rf /var/lib/apt/lists/*
+
+# Configurar Puppeteer
+ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
+
+# Copiar arquivos
+COPY . .
+
+# Instalar dependências uma por vez para identificar problemas
+RUN npm install --verbose --no-package-lock || npm install --force
+
+# Tentar build se possível, senão usar dev
+RUN npm run build 2>/dev/null || echo "Build failed, will use dev mode"
+
+EXPOSE 21465
+
+# Tentar start, se falhar usar dev
+CMD npm start || npm run dev
