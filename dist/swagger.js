@@ -1,0 +1,104 @@
+"use strict";var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _swaggerAutogen = _interopRequireDefault(require("swagger-autogen"));
+
+var _config = _interopRequireDefault(require("./config")); /*
+ * Copyright 2023 WPPConnect Team
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */const outputFile = './src/swagger.json';const endpointsFiles = ['./src/routes/index.ts'];const doc = { info: { version: '2.0.0', title: 'WPPConnect API Rest', description: 'Welcome to the Unicaclub WPPConnect-server API documentation. This API provides a set of endpoints to interact with the wppconnect-server application, allowing you to build integrations and automate interactions with WhatsApp.' }, host: `${_config.default.host}:${_config.default.port}`, securityDefinitions: { bearerAuth: {
+      type: 'http',
+      scheme: 'bearer',
+      bearerFormat: 'JWT'
+    }
+  },
+  tags: [
+  {
+    name: 'Auth',
+    description: ''
+  },
+  {
+    name: 'Chat',
+    description: 'Manages chat-related operations.'
+  },
+  {
+    name: 'Contact',
+    description:
+    'Handles operations related to contacts, such as managing contact lists, adding or removing contacts, and retrieving contact information.'
+  },
+  {
+    name: 'Catalog & Bussiness',
+    description:
+    'Handles operations related to catalogs and business-related functionalities, such as managing product catalogs and business information.'
+  },
+  {
+    name: 'Community',
+    description: 'Manage communities.'
+  },
+  {
+    name: 'Messages',
+    description:
+    'Handles message-related operations, including sending, receiving, and managing messages.'
+  },
+  {
+    name: 'Profile',
+    description:
+    'Manages user profile-related operations, such as retrieving and updating profile information'
+  },
+  {
+    name: 'Status Stories',
+    description:
+    'Handles operations related to status stories, such as viewing, updating, and managing status stories'
+  },
+  {
+    name: 'Labels',
+    description:
+    'Manages labels or tags associated with chats or messages for organization and categorization purposes.'
+  },
+  {
+    name: 'Group',
+    description:
+    'Manages operations related to WhatsApp groups, such as creating, modifying, and managing group settings.'
+  },
+  {
+    name: 'Misc',
+    description:
+    'Handles miscellaneous operations that do not fit into other specific categories.'
+  }],
+
+  definitions: {},
+  components: {
+    '@schemas': {
+      session: {
+        type: 'string',
+        schema: 'NERDWHATS_AMERICA'
+      }
+    }
+  }
+};
+
+(0, _swaggerAutogen.default)({ openapi: '3.0.0' })(outputFile, endpointsFiles, doc);
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJfc3dhZ2dlckF1dG9nZW4iLCJfaW50ZXJvcFJlcXVpcmVEZWZhdWx0IiwicmVxdWlyZSIsIl9jb25maWciLCJvdXRwdXRGaWxlIiwiZW5kcG9pbnRzRmlsZXMiLCJkb2MiLCJpbmZvIiwidmVyc2lvbiIsInRpdGxlIiwiZGVzY3JpcHRpb24iLCJob3N0IiwiY29uZmlnIiwicG9ydCIsInNlY3VyaXR5RGVmaW5pdGlvbnMiLCJiZWFyZXJBdXRoIiwidHlwZSIsInNjaGVtZSIsImJlYXJlckZvcm1hdCIsInRhZ3MiLCJuYW1lIiwiZGVmaW5pdGlvbnMiLCJjb21wb25lbnRzIiwic2Vzc2lvbiIsInNjaGVtYSIsInN3YWdnZXJBdXRvZ2VuIiwib3BlbmFwaSJdLCJzb3VyY2VzIjpbIi4uL3NyYy9zd2FnZ2VyLnRzIl0sInNvdXJjZXNDb250ZW50IjpbIi8qXHJcbiAqIENvcHlyaWdodCAyMDIzIFdQUENvbm5lY3QgVGVhbVxyXG4gKlxyXG4gKiBMaWNlbnNlZCB1bmRlciB0aGUgQXBhY2hlIExpY2Vuc2UsIFZlcnNpb24gMi4wICh0aGUgXCJMaWNlbnNlXCIpO1xyXG4gKiB5b3UgbWF5IG5vdCB1c2UgdGhpcyBmaWxlIGV4Y2VwdCBpbiBjb21wbGlhbmNlIHdpdGggdGhlIExpY2Vuc2UuXHJcbiAqIFlvdSBtYXkgb2J0YWluIGEgY29weSBvZiB0aGUgTGljZW5zZSBhdFxyXG4gKlxyXG4gKiAgICAgaHR0cDovL3d3dy5hcGFjaGUub3JnL2xpY2Vuc2VzL0xJQ0VOU0UtMi4wXHJcbiAqXHJcbiAqIFVubGVzcyByZXF1aXJlZCBieSBhcHBsaWNhYmxlIGxhdyBvciBhZ3JlZWQgdG8gaW4gd3JpdGluZywgc29mdHdhcmVcclxuICogZGlzdHJpYnV0ZWQgdW5kZXIgdGhlIExpY2Vuc2UgaXMgZGlzdHJpYnV0ZWQgb24gYW4gXCJBUyBJU1wiIEJBU0lTLFxyXG4gKiBXSVRIT1VUIFdBUlJBTlRJRVMgT1IgQ09ORElUSU9OUyBPRiBBTlkgS0lORCwgZWl0aGVyIGV4cHJlc3Mgb3IgaW1wbGllZC5cclxuICogU2VlIHRoZSBMaWNlbnNlIGZvciB0aGUgc3BlY2lmaWMgbGFuZ3VhZ2UgZ292ZXJuaW5nIHBlcm1pc3Npb25zIGFuZFxyXG4gKiBsaW1pdGF0aW9ucyB1bmRlciB0aGUgTGljZW5zZS5cclxuICovXHJcbmltcG9ydCBzd2FnZ2VyQXV0b2dlbiBmcm9tICdzd2FnZ2VyLWF1dG9nZW4nO1xyXG5cclxuaW1wb3J0IGNvbmZpZyBmcm9tICcuL2NvbmZpZyc7XHJcblxyXG5jb25zdCBvdXRwdXRGaWxlID0gJy4vc3JjL3N3YWdnZXIuanNvbic7XHJcbmNvbnN0IGVuZHBvaW50c0ZpbGVzID0gWycuL3NyYy9yb3V0ZXMvaW5kZXgudHMnXTtcclxuXHJcbmNvbnN0IGRvYyA9IHtcclxuICBpbmZvOiB7XHJcbiAgICB2ZXJzaW9uOiAnMi4wLjAnLFxyXG4gICAgdGl0bGU6ICdXUFBDb25uZWN0IEFQSSBSZXN0JyxcclxuICAgIGRlc2NyaXB0aW9uOlxyXG4gICAgICAnV2VsY29tZSB0byB0aGUgVW5pY2FjbHViIFdQUENvbm5lY3Qtc2VydmVyIEFQSSBkb2N1bWVudGF0aW9uLiBUaGlzIEFQSSBwcm92aWRlcyBhIHNldCBvZiBlbmRwb2ludHMgdG8gaW50ZXJhY3Qgd2l0aCB0aGUgd3BwY29ubmVjdC1zZXJ2ZXIgYXBwbGljYXRpb24sIGFsbG93aW5nIHlvdSB0byBidWlsZCBpbnRlZ3JhdGlvbnMgYW5kIGF1dG9tYXRlIGludGVyYWN0aW9ucyB3aXRoIFdoYXRzQXBwLicsXHJcbiAgfSxcclxuICBob3N0OiBgJHtjb25maWcuaG9zdH06JHtjb25maWcucG9ydH1gLFxyXG4gIHNlY3VyaXR5RGVmaW5pdGlvbnM6IHtcclxuICAgIGJlYXJlckF1dGg6IHtcclxuICAgICAgdHlwZTogJ2h0dHAnLFxyXG4gICAgICBzY2hlbWU6ICdiZWFyZXInLFxyXG4gICAgICBiZWFyZXJGb3JtYXQ6ICdKV1QnLFxyXG4gICAgfSxcclxuICB9LFxyXG4gIHRhZ3M6IFtcclxuICAgIHtcclxuICAgICAgbmFtZTogJ0F1dGgnLFxyXG4gICAgICBkZXNjcmlwdGlvbjogJycsXHJcbiAgICB9LFxyXG4gICAge1xyXG4gICAgICBuYW1lOiAnQ2hhdCcsXHJcbiAgICAgIGRlc2NyaXB0aW9uOiAnTWFuYWdlcyBjaGF0LXJlbGF0ZWQgb3BlcmF0aW9ucy4nLFxyXG4gICAgfSxcclxuICAgIHtcclxuICAgICAgbmFtZTogJ0NvbnRhY3QnLFxyXG4gICAgICBkZXNjcmlwdGlvbjpcclxuICAgICAgICAnSGFuZGxlcyBvcGVyYXRpb25zIHJlbGF0ZWQgdG8gY29udGFjdHMsIHN1Y2ggYXMgbWFuYWdpbmcgY29udGFjdCBsaXN0cywgYWRkaW5nIG9yIHJlbW92aW5nIGNvbnRhY3RzLCBhbmQgcmV0cmlldmluZyBjb250YWN0IGluZm9ybWF0aW9uLicsXHJcbiAgICB9LFxyXG4gICAge1xyXG4gICAgICBuYW1lOiAnQ2F0YWxvZyAmIEJ1c3NpbmVzcycsXHJcbiAgICAgIGRlc2NyaXB0aW9uOlxyXG4gICAgICAgICdIYW5kbGVzIG9wZXJhdGlvbnMgcmVsYXRlZCB0byBjYXRhbG9ncyBhbmQgYnVzaW5lc3MtcmVsYXRlZCBmdW5jdGlvbmFsaXRpZXMsIHN1Y2ggYXMgbWFuYWdpbmcgcHJvZHVjdCBjYXRhbG9ncyBhbmQgYnVzaW5lc3MgaW5mb3JtYXRpb24uJyxcclxuICAgIH0sXHJcbiAgICB7XHJcbiAgICAgIG5hbWU6ICdDb21tdW5pdHknLFxyXG4gICAgICBkZXNjcmlwdGlvbjogJ01hbmFnZSBjb21tdW5pdGllcy4nLFxyXG4gICAgfSxcclxuICAgIHtcclxuICAgICAgbmFtZTogJ01lc3NhZ2VzJyxcclxuICAgICAgZGVzY3JpcHRpb246XHJcbiAgICAgICAgJ0hhbmRsZXMgbWVzc2FnZS1yZWxhdGVkIG9wZXJhdGlvbnMsIGluY2x1ZGluZyBzZW5kaW5nLCByZWNlaXZpbmcsIGFuZCBtYW5hZ2luZyBtZXNzYWdlcy4nLFxyXG4gICAgfSxcclxuICAgIHtcclxuICAgICAgbmFtZTogJ1Byb2ZpbGUnLFxyXG4gICAgICBkZXNjcmlwdGlvbjpcclxuICAgICAgICAnTWFuYWdlcyB1c2VyIHByb2ZpbGUtcmVsYXRlZCBvcGVyYXRpb25zLCBzdWNoIGFzIHJldHJpZXZpbmcgYW5kIHVwZGF0aW5nIHByb2ZpbGUgaW5mb3JtYXRpb24nLFxyXG4gICAgfSxcclxuICAgIHtcclxuICAgICAgbmFtZTogJ1N0YXR1cyBTdG9yaWVzJyxcclxuICAgICAgZGVzY3JpcHRpb246XHJcbiAgICAgICAgJ0hhbmRsZXMgb3BlcmF0aW9ucyByZWxhdGVkIHRvIHN0YXR1cyBzdG9yaWVzLCBzdWNoIGFzIHZpZXdpbmcsIHVwZGF0aW5nLCBhbmQgbWFuYWdpbmcgc3RhdHVzIHN0b3JpZXMnLFxyXG4gICAgfSxcclxuICAgIHtcclxuICAgICAgbmFtZTogJ0xhYmVscycsXHJcbiAgICAgIGRlc2NyaXB0aW9uOlxyXG4gICAgICAgICdNYW5hZ2VzIGxhYmVscyBvciB0YWdzIGFzc29jaWF0ZWQgd2l0aCBjaGF0cyBvciBtZXNzYWdlcyBmb3Igb3JnYW5pemF0aW9uIGFuZCBjYXRlZ29yaXphdGlvbiBwdXJwb3Nlcy4nLFxyXG4gICAgfSxcclxuICAgIHtcclxuICAgICAgbmFtZTogJ0dyb3VwJyxcclxuICAgICAgZGVzY3JpcHRpb246XHJcbiAgICAgICAgJ01hbmFnZXMgb3BlcmF0aW9ucyByZWxhdGVkIHRvIFdoYXRzQXBwIGdyb3Vwcywgc3VjaCBhcyBjcmVhdGluZywgbW9kaWZ5aW5nLCBhbmQgbWFuYWdpbmcgZ3JvdXAgc2V0dGluZ3MuJyxcclxuICAgIH0sXHJcbiAgICB7XHJcbiAgICAgIG5hbWU6ICdNaXNjJyxcclxuICAgICAgZGVzY3JpcHRpb246XHJcbiAgICAgICAgJ0hhbmRsZXMgbWlzY2VsbGFuZW91cyBvcGVyYXRpb25zIHRoYXQgZG8gbm90IGZpdCBpbnRvIG90aGVyIHNwZWNpZmljIGNhdGVnb3JpZXMuJyxcclxuICAgIH0sXHJcbiAgXSxcclxuICBkZWZpbml0aW9uczoge30sXHJcbiAgY29tcG9uZW50czoge1xyXG4gICAgJ0BzY2hlbWFzJzoge1xyXG4gICAgICBzZXNzaW9uOiB7XHJcbiAgICAgICAgdHlwZTogJ3N0cmluZycsXHJcbiAgICAgICAgc2NoZW1hOiAnTkVSRFdIQVRTX0FNRVJJQ0EnLFxyXG4gICAgICB9LFxyXG4gICAgfSxcclxuICB9LFxyXG59O1xyXG5cclxuc3dhZ2dlckF1dG9nZW4oeyBvcGVuYXBpOiAnMy4wLjAnIH0pKG91dHB1dEZpbGUsIGVuZHBvaW50c0ZpbGVzLCBkb2MpO1xyXG4iXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7OztBQWVBLElBQUFBLGVBQUEsR0FBQUMsc0JBQUEsQ0FBQUMsT0FBQTs7QUFFQSxJQUFBQyxPQUFBLEdBQUFGLHNCQUFBLENBQUFDLE9BQUEsY0FBOEIsQ0FqQjlCO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSxHQUtBLE1BQU1FLFVBQVUsR0FBRyxvQkFBb0IsQ0FDdkMsTUFBTUMsY0FBYyxHQUFHLENBQUMsdUJBQXVCLENBQUMsQ0FFaEQsTUFBTUMsR0FBRyxHQUFHLEVBQ1ZDLElBQUksRUFBRSxFQUNKQyxPQUFPLEVBQUUsT0FBTyxFQUNoQkMsS0FBSyxFQUFFLHFCQUFxQixFQUM1QkMsV0FBVyxFQUNULG9PQUFvTyxDQUN4TyxDQUFDLEVBQ0RDLElBQUksRUFBRSxHQUFHQyxlQUFNLENBQUNELElBQUksSUFBSUMsZUFBTSxDQUFDQyxJQUFJLEVBQUUsRUFDckNDLG1CQUFtQixFQUFFLEVBQ25CQyxVQUFVLEVBQUU7TUFDVkMsSUFBSSxFQUFFLE1BQU07TUFDWkMsTUFBTSxFQUFFLFFBQVE7TUFDaEJDLFlBQVksRUFBRTtJQUNoQjtFQUNGLENBQUM7RUFDREMsSUFBSSxFQUFFO0VBQ0o7SUFDRUMsSUFBSSxFQUFFLE1BQU07SUFDWlYsV0FBVyxFQUFFO0VBQ2YsQ0FBQztFQUNEO0lBQ0VVLElBQUksRUFBRSxNQUFNO0lBQ1pWLFdBQVcsRUFBRTtFQUNmLENBQUM7RUFDRDtJQUNFVSxJQUFJLEVBQUUsU0FBUztJQUNmVixXQUFXO0lBQ1Q7RUFDSixDQUFDO0VBQ0Q7SUFDRVUsSUFBSSxFQUFFLHFCQUFxQjtJQUMzQlYsV0FBVztJQUNUO0VBQ0osQ0FBQztFQUNEO0lBQ0VVLElBQUksRUFBRSxXQUFXO0lBQ2pCVixXQUFXLEVBQUU7RUFDZixDQUFDO0VBQ0Q7SUFDRVUsSUFBSSxFQUFFLFVBQVU7SUFDaEJWLFdBQVc7SUFDVDtFQUNKLENBQUM7RUFDRDtJQUNFVSxJQUFJLEVBQUUsU0FBUztJQUNmVixXQUFXO0lBQ1Q7RUFDSixDQUFDO0VBQ0Q7SUFDRVUsSUFBSSxFQUFFLGdCQUFnQjtJQUN0QlYsV0FBVztJQUNUO0VBQ0osQ0FBQztFQUNEO0lBQ0VVLElBQUksRUFBRSxRQUFRO0lBQ2RWLFdBQVc7SUFDVDtFQUNKLENBQUM7RUFDRDtJQUNFVSxJQUFJLEVBQUUsT0FBTztJQUNiVixXQUFXO0lBQ1Q7RUFDSixDQUFDO0VBQ0Q7SUFDRVUsSUFBSSxFQUFFLE1BQU07SUFDWlYsV0FBVztJQUNUO0VBQ0osQ0FBQyxDQUNGOztFQUNEVyxXQUFXLEVBQUUsQ0FBQyxDQUFDO0VBQ2ZDLFVBQVUsRUFBRTtJQUNWLFVBQVUsRUFBRTtNQUNWQyxPQUFPLEVBQUU7UUFDUFAsSUFBSSxFQUFFLFFBQVE7UUFDZFEsTUFBTSxFQUFFO01BQ1Y7SUFDRjtFQUNGO0FBQ0YsQ0FBQzs7QUFFRCxJQUFBQyx1QkFBYyxFQUFDLEVBQUVDLE9BQU8sRUFBRSxPQUFPLENBQUMsQ0FBQyxDQUFDLENBQUN0QixVQUFVLEVBQUVDLGNBQWMsRUFBRUMsR0FBRyxDQUFDIiwiaWdub3JlTGlzdCI6W119

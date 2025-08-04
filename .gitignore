@@ -3,7 +3,7 @@ Dockerfile*
 .dockerignore
 
 /.env
-/dist
+# /dist  # Comentado para permitir commit do build
 /node_modules
 /swagger-docs
 /.vs
