@@ -15,5 +15,19 @@
  */
 import config from './config';
 import { initServer } from './index';
+import { initializeAutomationSystem } from './util/automationInit';
 
-initServer(config);
+async function startServer() {
+  try {
+    // Initialize automation system first
+    await initializeAutomationSystem();
+    
+    // Then start the main server
+    initServer(config);
+  } catch (error) {
+    console.error('Failed to start server:', error);
+    process.exit(1);
+  }
+}
+
+startServer();

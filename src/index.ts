@@ -70,6 +70,18 @@ export function initServer(serverOptions: Partial<ServerOptions>): {
     process.env['AWS_SECRET_ACCESS_KEY'] = config.aws_s3.secret_key;
   }
 
+  // Import automation middleware
+  const { 
+    automationIntegrationMiddleware, 
+    webhookAutomationMiddleware,
+    addAutomationInfo 
+  } = require('./middleware/automationIntegration');
+
+  // Add automation integration middleware
+  app.use(automationIntegrationMiddleware);
+  app.use(webhookAutomationMiddleware);
+  app.use(addAutomationInfo);
+
   // Add request options
   app.use((req: any, res: any, next: NextFunction) => {
     req.serverOptions = serverOptions;

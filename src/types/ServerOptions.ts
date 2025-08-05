@@ -68,4 +68,48 @@ export interface ServerOptions {
     endpoint?: string | null;
     forcePathStyle?: boolean | null;
   };
+  automation?: {
+    enabled: boolean;
+    mongodb: {
+      uri: string;
+      database: string;
+    };
+    queue: {
+      processInterval: number;
+      maxRetries: number;
+      cleanupInterval: number;
+    };
+    analytics: {
+      enabled: boolean;
+      retentionDays: number;
+    };
+    channels: {
+      telegram: {
+        botToken: string;
+      };
+      instagram: {
+        accessToken: string;
+        pageId: string;
+        verifyToken: string;
+      };
+      sms: {
+        provider: string;
+        twilio: {
+          accountSid: string;
+          authToken: string;
+          phoneNumber: string;
+        };
+      };
+      email: {
+        provider: string;
+        smtp: {
+          host: string;
+          port: number;
+          user: string;
+          password: string;
+          from: string;
+        };
+      };
+    };
+  };
 }

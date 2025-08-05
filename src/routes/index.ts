@@ -30,6 +30,8 @@ import * as NewsletterController from '../controller/newsletterController';
 import * as OrderController from '../controller/orderController';
 import * as SessionController from '../controller/sessionController';
 import * as StatusController from '../controller/statusController';
+import * as AutomationController from '../controller/automationController';
+import * as WebhookController from '../controller/webhookController';
 import verifyToken from '../middleware/auth';
 import * as HealthCheck from '../middleware/healthCheck';
 import * as prometheusRegister from '../middleware/instrumentation';
@@ -935,6 +937,150 @@ routes.post(
 );
 
 routes.post('/api/:session/chatwoot', DeviceController.chatWoot);
+
+// Automation System Routes
+// Automations
+routes.post(
+  '/api/:userId/automations',
+  verifyToken,
+  AutomationController.createAutomation
+);
+routes.get(
+  '/api/:userId/automations',
+  verifyToken,
+  AutomationController.getAutomations
+);
+routes.get(
+  '/api/automations/:automationId',
+  verifyToken,
+  AutomationController.getAutomation
+);
+routes.put(
+  '/api/automations/:automationId',
+  verifyToken,
+  AutomationController.updateAutomation
+);
+routes.delete(
+  '/api/automations/:automationId',
+  verifyToken,
+  AutomationController.deleteAutomation
+);
+routes.post(
+  '/api/automations/:automationId/toggle',
+  verifyToken,
+  AutomationController.toggleAutomation
+);
+routes.post(
+  '/api/automations/:automationId/test',
+  verifyToken,
+  AutomationController.testAutomation
+);
+
+// Message Templates
+routes.post(
+  '/api/:userId/templates',
+  verifyToken,
+  AutomationController.createMessageTemplate
+);
+routes.get(
+  '/api/:userId/templates',
+  verifyToken,
+  AutomationController.getMessageTemplates
+);
+routes.post(
+  '/api/templates/:templateId/preview',
+  verifyToken,
+  AutomationController.previewMessageTemplate
+);
+
+// Contact Segments
+routes.post(
+  '/api/:userId/segments',
+  verifyToken,
+  AutomationController.createContactSegment
+);
+routes.get(
+  '/api/:userId/segments',
+  verifyToken,
+  AutomationController.getContactSegments
+);
+routes.get(
+  '/api/segments/:segmentId/contacts',
+  verifyToken,
+  AutomationController.getSegmentContacts
+);
+
+// Analytics
+routes.get(
+  '/api/:userId/analytics/dashboard',
+  verifyToken,
+  AutomationController.getDashboardMetrics
+);
+routes.get(
+  '/api/automations/:automationId/analytics',
+  verifyToken,
+  AutomationController.getAutomationAnalytics
+);
+routes.get(
+  '/api/:userId/analytics/contacts',
+  verifyToken,
+  AutomationController.getContactAnalytics
+);
+routes.get(
+  '/api/:userId/analytics/messages',
+  verifyToken,
+  AutomationController.getMessageAnalytics
+);
+
+// Queue Management
+routes.get(
+  '/api/queue/stats',
+  verifyToken,
+  AutomationController.getQueueStats
+);
+routes.post(
+  '/api/queue/jobs/:jobId/retry',
+  verifyToken,
+  AutomationController.retryFailedJob
+);
+
+// Enhanced Contacts
+routes.get(
+  '/api/:userId/contacts',
+  verifyToken,
+  AutomationController.getContacts
+);
+routes.put(
+  '/api/contacts/:contactId',
+  verifyToken,
+  AutomationController.updateContact
+);
+
+// Webhook Routes
+routes.post(
+  '/api/webhook/whatsapp',
+  WebhookController.whatsappWebhook
+);
+routes.post(
+  '/api/webhook/zapi',
+  WebhookController.zapiWebhook
+);
+routes.post(
+  '/api/webhook/:userId/:sessionId/generic',
+  WebhookController.genericWebhook
+);
+routes.post(
+  '/api/webhook/:userId/:sessionId/telegram',
+  WebhookController.telegramWebhook
+);
+routes.get(
+  '/api/webhook/:userId/:sessionId/instagram',
+  WebhookController.instagramWebhook
+);
+routes.post(
+  '/api/webhook/:userId/:sessionId/instagram',
+  WebhookController.instagramWebhook
+);
 
 // Api Doc
 routes.use('/api-docs', swaggerUi.serve as any);

@@ -106,4 +106,48 @@ export default {
     endpoint: process.env.AWS_S3_ENDPOINT || null,
     forcePathStyle: process.env.AWS_S3_FORCE_PATH_STYLE === 'true' || null,
   },
+  automation: {
+    enabled: process.env.AUTOMATION_ENABLED !== 'false',
+    mongodb: {
+      uri: process.env.MONGODB_URI || process.env.MONGO_URL || '',
+      database: process.env.MONGODB_DATABASE || 'wppconnect_automation'
+    },
+    queue: {
+      processInterval: parseInt(process.env.QUEUE_PROCESS_INTERVAL || '5000'),
+      maxRetries: parseInt(process.env.QUEUE_MAX_RETRIES || '3'),
+      cleanupInterval: parseInt(process.env.QUEUE_CLEANUP_INTERVAL || '86400000') // 24 hours
+    },
+    analytics: {
+      enabled: process.env.ANALYTICS_ENABLED !== 'false',
+      retentionDays: parseInt(process.env.ANALYTICS_RETENTION_DAYS || '90')
+    },
+    channels: {
+      telegram: {
+        botToken: process.env.TELEGRAM_BOT_TOKEN || '',
+      },
+      instagram: {
+        accessToken: process.env.INSTAGRAM_ACCESS_TOKEN || '',
+        pageId: process.env.INSTAGRAM_PAGE_ID || '',
+        verifyToken: process.env.INSTAGRAM_VERIFY_TOKEN || 'wppconnect_verify'
+      },
+      sms: {
+        provider: process.env.SMS_PROVIDER || 'twilio',
+        twilio: {
+          accountSid: process.env.TWILIO_ACCOUNT_SID || '',
+          authToken: process.env.TWILIO_AUTH_TOKEN || '',
+          phoneNumber: process.env.TWILIO_PHONE_NUMBER || ''
+        }
+      },
+      email: {
+        provider: process.env.EMAIL_PROVIDER || 'smtp',
+        smtp: {
+          host: process.env.SMTP_HOST || '',
+          port: parseInt(process.env.SMTP_PORT || '587'),
+          user: process.env.SMTP_USER || '',
+          password: process.env.SMTP_PASSWORD || '',
+          from: process.env.SMTP_FROM || ''
+        }
+      }
+    }
+  },
 } as unknown as ServerOptions;
