@@ -1,0 +1,14 @@
+[build]
+builder = "nixpacks"
+
+[deploy]
+startCommand = "npm run railway:start"
+restartPolicyType = "ON_FAILURE"
+healthcheckPath = "/healthz"
+healthcheckTimeout = 300
+
+[env]
+NODE_ENV = "production"
+PUPPETEER_SKIP_CHROMIUM_DOWNLOAD = "true"
+AUTOMATION_ENABLED = "true"
+LOG_LEVEL = "info"

@@ -1,0 +1,56 @@
+# Docker Compose para Railway
+# Use este se quiser mais controle sobre o MongoDB
+
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:7.0
+    container_name: wppconnect-mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD:-admin123}
+      MONGO_INITDB_DATABASE: wppconnect_automation
+    volumes:
+      - mongo_data:/data/db
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    ports:
+      - "27017:27017"
+    restart: unless-stopped
+    command: mongod --auth
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/wppconnect_automation --quiet
+      interval: 10s
+      timeout: 10s
+      retries: 5
+      start_period: 40s
+
+  wppconnect:
+    build: .
+    container_name: wppconnect-app
+    environment:
+      - MONGODB_URI=mongodb://wppconnect_user:${MONGO_USER_PASSWORD:-wpp123}@mongodb:27017/wppconnect_automation?authSource=wppconnect_automation
+      - SECRET_KEY=${SECRET_KEY:-sua_chave_secreta_forte}
+      - AUTOMATION_ENABLED=true
+      - NODE_ENV=production
+      - LOG_LEVEL=info
+    ports:
+      - "${PORT:-21465}:21465"
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    restart: unless-stopped
+    volumes:
+      - app_logs:/app/logs
+      - app_tokens:/app/tokens
+      - app_userdata:/app/userDataDir
+
+volumes:
+  mongo_data:
+    driver: local
+  app_logs:
+    driver: local  
+  app_tokens:
+    driver: local
+  app_userdata:
+    driver: local

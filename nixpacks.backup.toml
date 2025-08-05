@@ -1,0 +1,16 @@
+[phases.setup]
+nixPkgs = ["nodejs_18"]
+
+[phases.install]
+cmds = ["npm ci --legacy-peer-deps --no-fund --no-audit"]
+
+[phases.build]
+cmds = ["npm run build:simple"]
+
+[start]
+cmd = "npm start"
+
+[variables]
+NODE_ENV = "production"
+PUPPETEER_SKIP_CHROMIUM_DOWNLOAD = "true"
+NPM_CONFIG_LEGACY_PEER_DEPS = "true"

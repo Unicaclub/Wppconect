@@ -1,0 +1,17 @@
+import { Request, Response } from 'express';
+export declare function sendMessage(req: Request, res: Response): Promise<void>;
+export declare function editMessage(req: Request, res: Response): Promise<void>;
+export declare function sendFile(req: Request, res: Response): Promise<void>;
+export declare function sendVoice(req: Request, res: Response): Promise<void>;
+export declare function sendVoice64(req: Request, res: Response): Promise<void>;
+export declare function sendLinkPreview(req: Request, res: Response): Promise<void>;
+export declare function sendLocation(req: Request, res: Response): Promise<void>;
+export declare function sendButtons(req: Request, res: Response): Promise<void>;
+export declare function sendListMessage(req: Request, res: Response): Promise<void>;
+export declare function sendOrderMessage(req: Request, res: Response): Promise<void>;
+export declare function sendPollMessage(req: Request, res: Response): Promise<void>;
+export declare function sendStatusText(req: Request, res: Response): Promise<void>;
+export declare function replyMessage(req: Request, res: Response): Promise<void>;
+export declare function sendMentioned(req: Request, res: Response): Promise<void>;
+export declare function sendImageAsSticker(req: Request, res: Response): Promise<void>;
+export declare function sendImageAsStickerGif(req: Request, res: Response): Promise<void>;

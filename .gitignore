@@ -1,0 +1,29 @@
+# Railway - ignore Docker files to force Nixpacks
+Dockerfile*
+.dockerignore
+
+/.env
+# /dist  # Comentado para permitir commit do build
+/node_modules
+/swagger-docs
+/.vs
+/bin
+/log
+/obj/Debug
+/tokens
+/uploads
+/WhatsAppImages
+/unicaclub-wppconnect-server.njsproj
+/unicaclub-wppconnect-server.njsproj.user
+*.sln
+/package-lock.json
+*.png
+*.tgz
+*.zip
+/.idea
+userDataDir
+/yarn.lock
+/yarn-error.log
+backupFolder
+tokens/*
+wppconnect_tokens/*
